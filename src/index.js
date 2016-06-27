@@ -2,7 +2,6 @@ import React from 'react'
 import R from 'ramda'
 
 import Meadow from './Meadow'
-import MeadowItem from './MeadowItem'
 import Transform from './Transform'
 import transformsToUIData from './transformsToUIData'
 import types from './types'
@@ -44,7 +43,7 @@ export default React.createClass({
 	render() {
 		const uiTransforms = transformsToUIData(transforms)
 		return (
-			<div>
+			<div style={{ maxWidth: '24em', margin: 'auto', fontFamily: 'sans-serif', fontSize: 16 }}>
 				<Meadow
 					typeSpecs={ typeSpecs }
 					fieldSpecs={ fieldSpecs }

@@ -44,6 +44,7 @@
 		"fields": [
 			{
 				"id": "newToOldKeys",
+				"title": "New Keys to Old Keys",
 				"type": "text"
 			}
 		]
@@ -76,7 +77,11 @@
 	"text.uppercase": {
 		"type": "group",
 		"title": "Uppercase",
-		"fields": [
-		]
+		"fields": []
+	},
+	"text.lowercase": {
+		"type": "group",
+		"title": "Lowercase",
+		"fields": []
 	}
 }
