@@ -1,10 +1,12 @@
 {
-	"transformType": {
-		"title": "Transform",
+	"transforms": {
+		"title": "Transforms",
 		"type": "typeChoice",
 		"types": [
 			"list",
-			"object"
-		]
+			"object",
+			"text"
+		],
+		"multiple": true
 	}
 }

@@ -1,8 +1,15 @@
 {
-	"transform": {
-		"title": "Transform",
+	"object": {
+		"title": "Object",
 		"fields": [
-			"transformType"
+			{
+				"id": "objectInner",
+				"type": "typeChoice",
+				"types": [
+					"object.mapKeys",
+					"object.mapValues"
+				]
+			}
 		]
 	},
 	"list": {
@@ -19,14 +26,14 @@
 			}
 		]
 	},
-	"object": {
-		"title": "Object",
+	"text": {
+		"title": "Text",
 		"fields": [
 			{
-				"id": "objectInner",
+				"id": "textInner",
 				"type": "typeChoice",
 				"types": [
-					"object.mapKeys"
+					"text.uppercase"
 				]
 			}
 		]
@@ -39,6 +46,13 @@
 				"id": "newToOldKeys",
 				"type": "text"
 			}
+		]
+	},
+	"object.mapValues": {
+		"type": "group",
+		"title": "Change Values",
+		"fields": [
+			"transforms"
 		]
 	},
 	"list.first": {
@@ -57,6 +71,12 @@
 		"title": "Filter",
 		"fields": [
 			"transforms"
+		]
+	},
+	"text.uppercase": {
+		"type": "group",
+		"title": "Uppercase",
+		"fields": [
 		]
 	}
 }

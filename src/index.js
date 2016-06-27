@@ -25,6 +25,14 @@ const transforms = [
 	{
 		"type": "list.first",
 		"limit": "5"
+	},
+	{
+		"type": "object.mapValues",
+		"transforms": [
+			{
+				"type": "text.uppercase"
+			}
+		]
 	}
 ]
 
@@ -34,19 +42,16 @@ export default React.createClass({
 	},
 
 	render() {
-		const uiData = transformsToUIData(transforms)
+		const uiTransforms = transformsToUIData(transforms)
 		return (
 			<div>
-				{ uiData.map((transform, index) => (
-					<Meadow
-						key={ index }
-						typeSpecs={ typeSpecs }
-						fieldSpecs={ fieldSpecs }
-						values={ transform }
-						title={ JSON.stringify(transform) }
-						onReplaceInfoAtKeyPath={ this.onReplaceInfoAtKeyPath }
-					/>
-				)) }
+				<Meadow
+					typeSpecs={ typeSpecs }
+					fieldSpecs={ fieldSpecs }
+					fields={[ 'transforms' ]}
+					values={{ transforms: uiTransforms }}
+					onReplaceInfoAtKeyPath={ this.onReplaceInfoAtKeyPath }
+				/>
 			</div>
 		)
 	}

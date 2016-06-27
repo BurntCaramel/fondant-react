@@ -1,15 +1,16 @@
 function transformToUIData({ type, ...props }) {
-	const [typeGroup, typeInner] = type.split('.')
+	const [typeGroup, typeInner, ...typeMore] = type.split('.')
+
+	if (props.transforms) {
+		props.transforms = transformsToUIData(props.transforms)
+	}
 
 	return {
-		//type: 'transform',
-		//transformType: {
-			type: typeGroup,
-			[`${typeGroup}Inner`]: {
-				type,
-				...props
-			}
-		//}
+		type: typeGroup,
+		[`${typeGroup}Inner`]: {
+			type,
+			...props
+		}
 	}
 }
 
