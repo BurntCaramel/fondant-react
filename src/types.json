@@ -1,0 +1,62 @@
+{
+	"transform": {
+		"title": "Transform",
+		"fields": [
+			"transformType"
+		]
+	},
+	"list": {
+		"title": "List",
+		"fields": [
+			{
+				"id": "listInner",
+				"title": "List",
+				"type": "typeChoice",
+				"types": [
+					"list.first",
+					"list.filter"
+				]
+			}
+		]
+	},
+	"object": {
+		"title": "Object",
+		"fields": [
+			{
+				"id": "objectInner",
+				"type": "typeChoice",
+				"types": [
+					"object.mapKeys"
+				]
+			}
+		]
+	},
+	"object.mapKeys": {
+		"type": "group",
+		"title": "Change Keys",
+		"fields": [
+			{
+				"id": "newToOldKeys",
+				"type": "text"
+			}
+		]
+	},
+	"list.first": {
+		"type": "group",
+		"title": "First Items",
+		"fields": [
+			{
+				"id": "limit",
+				"title": "Limit",
+				"type": "number"
+			}
+		]
+	},
+	"list.filter": {
+		"type": "group",
+		"title": "Filter",
+		"fields": [
+			"transforms"
+		]
+	}
+}

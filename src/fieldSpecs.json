@@ -1,0 +1,10 @@
+{
+	"transformType": {
+		"title": "Transform",
+		"type": "typeChoice",
+		"types": [
+			"list",
+			"object"
+		]
+	}
+}
