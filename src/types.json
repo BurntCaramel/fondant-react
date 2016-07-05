@@ -7,7 +7,11 @@
 				"type": "typeChoice",
 				"types": [
 					"object.mapKeys",
-					"object.mapValues"
+					"object.mapValues",
+					"object.pick",
+					"object.listValues",
+					"object.merge",
+					"object.propertySatisfies"
 				]
 			}
 		]
@@ -33,7 +37,8 @@
 				"id": "textInner",
 				"type": "typeChoice",
 				"types": [
-					"text.uppercase"
+					"text.uppercase",
+					"text.lowercase"
 				]
 			}
 		]
@@ -56,13 +61,41 @@
 			"transforms"
 		]
 	},
+	"object.pick": {
+		"type": "group",
+		"title": "Pick Keys",
+		"fields": [
+			"propertyKeys"
+		]
+	},
+	"object.listValues": {
+		"type": "group",
+		"title": "List All Values",
+		"fields": [
+			"propertyKeys"
+		]
+	},
+	"object.merge": {
+		"type": "group",
+		"title": "Merge With",
+		"fields": [
+			"propertyKeys"
+		]
+	},
+	"object.propertySatisfies": {
+		"type": "group",
+		"title": "Property Satisfies",
+		"fields": [
+			"propertyKeys"
+		]
+	},
 	"list.first": {
 		"type": "group",
 		"title": "First Items",
 		"fields": [
 			{
 				"id": "limit",
-				"title": "Limit",
+				"title": "Count",
 				"type": "number"
 			}
 		]

@@ -1,12 +1,17 @@
 {
 	"transforms": {
-		"title": "Transforms",
+		"title": "Recipes",
 		"type": "typeChoice",
 		"types": [
 			"list",
 			"object",
 			"text"
 		],
+		"multiple": true
+	},
+	"propertyKeys": {
+		"title": "Property Keys",
+		"type": "text",
 		"multiple": true
 	}
 }
