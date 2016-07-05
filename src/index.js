@@ -6,6 +6,8 @@ import Transform from './Transform'
 import transformsToUIData from './transformsToUIData'
 import types from './types'
 import fieldSpecs from './fieldSpecs'
+import * as stylers from './stylers/main'
+import changePath from './utils/changePath'
 
 const typeSpecs = R.mapObjIndexed((typeSpec, id) => (
 	R.merge(typeSpec, { id })
@@ -13,7 +15,7 @@ const typeSpecs = R.mapObjIndexed((typeSpec, id) => (
 
 console.log('typeSpecs', typeSpecs)
 
-const transforms = [
+const initialTransforms = [
 	{
 		"type": "object.mapKeys",
 		"newToOldKeys": {
@@ -36,39 +38,38 @@ const transforms = [
 ]
 
 export default React.createClass({
-	onReplaceInfoAtKeyPath(value, keyPath, id) {
+	getInitialState() {
+		return {
+			transforms: transformsToUIData(initialTransforms)
+		}
+	},
 
+	onReplaceInfoAtKeyPath(value, keyPath) {
+		console.log('change', value, keyPath)
+		this.setState(R.pipe(
+			R.prop('transforms'),
+			R.clone(),
+			R.objOf('transforms'),
+			R.set(
+				R.lens(R.path(keyPath), changePath(keyPath)),
+				value
+			),
+			R.tap(after => console.log('after', after))
+		))
 	},
 
 	render() {
-		const uiTransforms = transformsToUIData(transforms)
+		const transforms = this.state.transforms
 		return (
-			<div style={{ maxWidth: '24em', margin: 'auto', fontFamily: 'sans-serif', fontSize: 16 }}>
+			<div { ...stylers.base() }>
 				<Meadow
 					typeSpecs={ typeSpecs }
 					fieldSpecs={ fieldSpecs }
 					fields={[ 'transforms' ]}
-					values={{ transforms: uiTransforms }}
+					values={{ transforms }}
 					onReplaceInfoAtKeyPath={ this.onReplaceInfoAtKeyPath }
 				/>
 			</div>
 		)
 	}
-
-	/*
-	render() {
-
-		const transformFields = transforms.map((transform, index) =>
-			<Transform key={ index } { ...transform } />
-		)
-
-		transformFields.push(<Transform key='new' enabled={ false } />)
-
-		return (
-			<div>{
-				transformFields
-			}</div>
-		)
-	}
-	*/
 })

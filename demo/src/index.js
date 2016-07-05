@@ -5,8 +5,7 @@ import Component from '../../src'
 
 let Demo = React.createClass({
   render() {
-    return <div>
-      <h1>fondant-react Demo</h1>
+    return <div style={{ padding: '1rem' }}>
       <Component/>
     </div>
   }

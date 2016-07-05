@@ -20,7 +20,7 @@
   "dependencies": {
     "ramda": "^0.21.0",
     "react-meadow": "^0.2.0-b1",
-    "react-sow": "^0.2.2"
+    "react-sow": "^0.3.0-b1"
   },
   "peerDependencies": {
     "react": "15.x"
