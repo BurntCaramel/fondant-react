@@ -8,7 +8,7 @@ function changePath(path, val, obj) {
     case 1:
 			return changeAt(path[0], val, obj)
     default:
-      return changeAt(path[0], changePath(path.slice(1), val, R.clone(obj[path[0]])), obj)
+      return changeAt(path[0], changePath(path.slice(1), val, R.clone(obj[path[0]] || {})), obj)
   }
 }
 
