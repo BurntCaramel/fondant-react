@@ -27,10 +27,19 @@ const StyledMultiple = (props) => (
 	/>
 )
 
+const Group = webComponents.groupComponent
+const StyledGroup = (props) => (
+	<Group
+		{ ...props }
+		styler={ stylers.group }
+	/>
+)
+
 const adjustedComponents = {
 	...webComponents,
 	fieldComponent: StyledField,
-	multipleComponent: StyledMultiple
+	multipleComponent: StyledMultiple,
+	groupComponent: StyledGroup
 }
 
 export default function WebMeadow(props) {

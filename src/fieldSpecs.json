@@ -1,6 +1,6 @@
 {
 	"transforms": {
-		"title": "Recipes",
+		"title": "Steps",
 		"type": "typeChoice",
 		"types": [
 			"list",
